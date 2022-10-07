@@ -17,4 +17,4 @@ Run the interpreter on a file
 - [Ereek71](./https://github.com/Ereek71)
 
 # Acknowledgments
-This project was written as part of the curriculum for Holberton/ALX-SE program
+This project was written as part of the curriculum for Holberton/ALX-SE program.
