@@ -1,6 +1,6 @@
 # Monty Interpreter
 
-Monty Btyecode Interpreter reads Monty bytecode files of any extension (preferably `.m` ) an interprets the opcodes contained.
+Monty Btyecode Interpreter reads Monty bytecode files of any extension (preferably `.m` ) and interprets the opcodes contained.
 
 # Installing and Using
 - Must have git installed
