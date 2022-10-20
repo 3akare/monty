@@ -1,80 +1,84 @@
 #include "monty.h"
 
-void monty_rotl(stack_t **stack, unsigned int line_number);
-void monty_rotr(stack_t **stack, unsigned int line_number);
-void monty_stack(stack_t **stack, unsigned int line_number);
-void monty_queue(stack_t **stack, unsigned int line_number);
-
 /**
- * monty_rotl - Rotates the top value of a stack_t linked list to the bottom.
- * @stack: A pointer to the top mode node of a stack_t linked list.
- * @line_number: The current working line number of a Monty bytecodes file.
+ * monty_mul - Multiplies the top two elements of the stack
+ *
+ * @stack: A doubly linked list
+ * @line_number: An integer
  */
-void monty_rotl(stack_t **stack, unsigned int line_number)
+
+void monty_mul(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top, *bottom;
-
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
-		return;
-
-	top = (*stack)->next;
-	bottom = (*stack)->next;
-	while (bottom->next != NULL)
-		bottom = bottom->next;
-
-	top->next->prev = *stack;
-	(*stack)->next = top->next;
-	bottom->next = top;
-	top->next = NULL;
-	top->prev = bottom;
-
+	if ((*stack)->next == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't mul, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (!(*stack)->next->next)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->next->n *= (*stack)->next->n;
+	monty_pop(stack, line_number);
 	(void)line_number;
 }
 
 /**
- * monty_rotr - Rotates the bottom value of a stack_t linked list to the top.
- * @stack: A pointer to the top mode node of a stack_t linked list.
- * @line_number: The current working line number of a Monty bytecodes file.
+ * monty_div - divides the second top element of the stack by the top element
+ * of the stack.
+ *
+ * @stack: A doubly linked list
+ * @line_number: An integer
  */
-void monty_rotr(stack_t **stack, unsigned int line_number)
+
+void monty_div(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top, *bottom;
-
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
-		return;
-
-	top = (*stack)->next;
-	bottom = (*stack)->next;
-	while (bottom->next != NULL)
-		bottom = bottom->next;
-
-	bottom->prev->next = NULL;
-	(*stack)->next = bottom;
-	bottom->prev = *stack;
-	bottom->next = top;
-	top->prev = bottom;
-
-	(void)line_number;
+	if ((*stack)->next == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't div, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (!(*stack)->next->next)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->next->n == 0)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't div, division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->next->n /= (*stack)->next->n;
+	monty_pop(stack, line_number);
 }
 
 /**
- * monty_stack - Converts a queue to a stack.
- * @stack: A pointer to the top mode node of a stack_t linked list.
- * @line_number: The current working line number of a Monty bytecodes file.
+ * monty_mod -  computes the rest of the division of the
+ *  second top element of the stack by the top element of
+ * the stack
+ *
+ * @stack: A doubly linked list
+ * @line_number: An integer
  */
-void monty_stack(stack_t **stack, unsigned int line_number)
-{
-	(*stack)->n = STACK;
-	(void)line_number;
-}
 
-/**
- * monty_queue - Converts a stack to a queue.
- * @stack: A pointer to the top mode node of a stack_t linked list.
- * @line_number: The current working line number of a Monty bytecodes file.
- */
-void monty_queue(stack_t **stack, unsigned int line_number)
+void monty_mod(stack_t **stack, unsigned int line_number)
 {
-	(*stack)->n = QUEUE;
-	(void)line_number;
+	if ((*stack)->next == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't mod, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (!(*stack)->next->next)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->next->n == 0)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't mod, division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->next->n %= (*stack)->next->n;
+	monty_pop(stack, line_number);
 }
