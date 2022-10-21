@@ -48,7 +48,9 @@ Run the interpreter on a file
 
 
 # Examples
-NOTE: monty interpreter runs in the default STACK (LIFO) mode. To switch mode to QUEUE (FIFO), see examples below.
+NOTE:
+- monty interpreter runs in the default STACK (LIFO) mode. To switch mode to QUEUE (FIFO), see examples below.
+- A line that begins with `#` is regarded as a comment.
 
 Push values onto the stack and print them all, or the top pf the stack /front of the queue
 ```
@@ -56,6 +58,7 @@ $ cat file.m
 push 1
 push 2
 push 3
+# this is a comment
 pall
 pint
 $ ./monty file.m
