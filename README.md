@@ -1,5 +1,3 @@
-
-
 # Monty Interpreter
 
 Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it.
@@ -50,7 +48,7 @@ Run the interpreter on a file
 
 
 # Examples
-NOTE: monty interpreter runs in the default mode of STACK mode. To switch mode to queue, see examples below.
+NOTE: monty interpreter runs in the default STACK (LIFO) mode. To switch mode to QUEUE (FIFO), see examples below.
 
 Push values onto the stack and print them all, or the top pf the stack /front of the queue
 ```
