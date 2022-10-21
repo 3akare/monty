@@ -2,8 +2,7 @@
 
 # Monty Interpreter
 
-Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
-
+Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it.
 
 ## Monty byte code files
 
@@ -28,68 +27,13 @@ Run the interpreter on a file
 ./monty file.m
 ```
 
-# Usage
-## push `<int>`
-Add an integer to the stack
-```
-push 1
-push 2
-push 3
-```
-## pall
-Prints all the values on the stack and takes no value
-```
-push 1
-push 2
-push 3
-pall
-```
-```
-3
-2
-1
-```
-## pint
-Prints the value at the top of the stack
-```
-push 1
-pint
-push 2
-pint
-push 3
-pint
-```
-```
-1
-2
-3
-```
-## pop
-Removes the element at the top of the stack
-```
-push 1
-push 2
-push 3
-pall
-pop
-pall
-pop
-pall
-pop
-pall
-```
-```
-3
-2
-1
-2
-1
-1
-```
-
-## Other Opcodes
+# Opcodes
 | Opcode         | Description | Usage|
 | -------------- | -------------------------- | -------------------- |
+|push|Add an integer to the stack|`push<int>`|
+|pall|Prints all the values on the stack and takes no value|`pall`|
+|pint|Prints the value at the top of the stack|`pint`|
+| pop | Removes the element at the top of the stack |`pop`
 | swap           | swaps the top two elements of the stack | `swap`
 | add           | add the top two elements of the stack | `add`
 | mul           | multiplies the top two elements of the stack | `mul`
@@ -102,8 +46,68 @@ pall
 | queue         | sets the format of the data to a queue (FIFO). | `queue`
 | rotr          | Rotates the stack to the bottom | `rotr`
 | rotl          | Rotates the stack to the top | `rotl`
-| nop           | Does nothing | `nop`
+| nop           | Does nothing | `nop`|
 
+
+# Examples
+NOTE: monty interpreter runs in the default mode of STACK mode. To switch mode to queue, see examples below.
+
+Push values onto the stack and print them all, or the top pf the stack /front of the queue
+```
+$ cat file.m
+push 1
+push 2
+push 3
+pall
+pint
+$ ./monty file.m
+3
+2
+1
+3
+```
+Mathematical operations like `add`, `div`, `mod`, `mul`, etc. Takes the `second from the top` and performs the operation on the `top`. The `top` is then deleted (popped) with the result stored in the `second from the top`
+```
+$ cat file.m
+push 3
+push 2
+push 1
+pall
+add
+pall
+$ ./monty file.m
+1
+2
+3
+1
+5
+```
+
+Entering Queue mode swtiches all operations to FIFO instead of the default LIFO.
+```
+$ cat file.m
+queue
+push 1
+push 2
+push 3
+pall
+stack
+push 4
+push 5
+push 6
+pall
+1
+2
+3
+6
+5
+4
+1
+2
+3
+```
+# Version
+- 0.1.0
 # Authors
 - [David Bakare](./https://github.com/3akare)
 - [Ereek71](./https://github.com/Ereek71)
