@@ -9,19 +9,19 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
 
 # Installing and Using
 - Must have git installed
-```
+```shell
 sudo apt-get install git
 ```
 - Clone the repo into a new directory
-```
+```shell
 git clone https://github.com/3akare/monty.git
 ```
 Complile with:
-```
+```shell
 gcc @flags *.c -o monty
 ```
 Run the interpreter on a file
-```
+```shell
 ./monty file.m
 ```
 
@@ -53,7 +53,7 @@ NOTE:
 - A line that begins with `#` is regarded as a comment.
 
 Push values onto the stack and print them all, or the top pf the stack /front of the queue
-```
+```shell
 $ cat file.m
 push 1
 push 2
@@ -68,7 +68,7 @@ $ ./monty file.m
 3
 ```
 Mathematical operations like `add`, `div`, `mod`, `mul`, etc. Takes the `second from the top` and performs the operation on the `top`. The `top` is then deleted (popped) with the result stored in the `second from the top`
-```
+```shell
 $ cat file.m
 push 3
 push 2
@@ -85,7 +85,7 @@ $ ./monty file.m
 ```
 
 Entering Queue mode swtiches all operations to FIFO instead of the default LIFO.
-```
+```shell
 $ cat file.m
 queue
 push 1
