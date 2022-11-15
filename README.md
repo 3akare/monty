@@ -110,8 +110,8 @@ pall
 # Version
 - 0.1.0
 # Authors
-- [David Bakare](./https://github.com/3akare)
-- [Ereek71](./https://github.com/Ereek71)
+- [David Bakare](https://github.com/3akare)
+- [Ereek71](https://github.com/Ereek71)
 
 # Acknowledgments
 This project was written as part of the curriculum for Holberton/ALX-SE program.
