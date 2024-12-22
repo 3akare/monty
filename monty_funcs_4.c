@@ -7,7 +7,7 @@
  * @line_number: An integer
  */
 
-void monty_mul(stack_t **stack, unsigned int line_number)
+void monty_mul(monty_stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL)
 	{
@@ -32,7 +32,7 @@ void monty_mul(stack_t **stack, unsigned int line_number)
  * @line_number: An integer
  */
 
-void monty_div(stack_t **stack, unsigned int line_number)
+void monty_div(monty_stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL)
 	{
@@ -62,7 +62,7 @@ void monty_div(stack_t **stack, unsigned int line_number)
  * @line_number: An integer
  */
 
-void monty_mod(stack_t **stack, unsigned int line_number)
+void monty_mod(monty_stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL)
 	{

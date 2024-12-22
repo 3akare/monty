@@ -5,11 +5,11 @@
  * @stack: a linked list
  * @line_number: an integer
  */
-void monty_push(stack_t **stack, unsigned int line_number)
+void monty_push(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp, *new;
+	monty_stack_t *temp, *new;
 
-	new = malloc(sizeof(stack_t));
+	new = malloc(sizeof(monty_stack_t));
 
 	if (!isdigit(op_int))
 	{
@@ -47,9 +47,9 @@ void monty_push(stack_t **stack, unsigned int line_number)
  * @stack: a linked list
  * @line_number: an integer
  */
-void monty_pall(stack_t **stack, unsigned int line_number)
+void monty_pall(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = (*stack)->next;
+	monty_stack_t *tmp = (*stack)->next;
 
 	while (tmp)
 	{
@@ -64,9 +64,9 @@ void monty_pall(stack_t **stack, unsigned int line_number)
  * @stack: a linked list
  * @line_number: an integer
  */
-void monty_pop(stack_t **stack, unsigned int line_number)
+void monty_pop(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = NULL;
+	monty_stack_t *tmp = NULL;
 
 	if (!(*stack))
 	{
@@ -85,9 +85,9 @@ void monty_pop(stack_t **stack, unsigned int line_number)
  * @stack: a linked list
  * @line_number: an integer
  */
-void monty_pint(stack_t **stack, unsigned int line_number)
+void monty_pint(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = (*stack)->next;
+	monty_stack_t *tmp = (*stack)->next;
 
 	if (!tmp)
 	{

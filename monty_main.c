@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
  * @stack: A doubly linked list
  * @line_number: An integer
  */
-void monty_stack(stack_t **stack, unsigned int line_number)
+void monty_stack(monty_stack_t **stack, unsigned int line_number)
 {
 	(*stack)->n = STACK;
 	(void)line_number;
@@ -66,7 +66,7 @@ void monty_stack(stack_t **stack, unsigned int line_number)
  * @stack: A doubly linked list
  * @line_number: An integer
  */
-void monty_queue(stack_t **stack, unsigned int line_number)
+void monty_queue(monty_stack_t **stack, unsigned int line_number)
 {
 	(*stack)->n = QUEUE;
 	(void)line_number;

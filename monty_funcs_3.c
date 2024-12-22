@@ -5,9 +5,9 @@
  * @stack: a linked list
  * @line_num: an integer
  */
-void monty_pchar(stack_t **stack, unsigned int line_num)
+void monty_pchar(monty_stack_t **stack, unsigned int line_num)
 {
-	stack_t *tmp = (*stack)->next;
+	monty_stack_t *tmp = (*stack)->next;
 
 	if (!tmp)
 	{
@@ -30,9 +30,9 @@ void monty_pchar(stack_t **stack, unsigned int line_num)
  * @stack: a linked list
  * @line_num: an integer
  */
-void monty_pstr(stack_t **stack, unsigned int line_num)
+void monty_pstr(monty_stack_t **stack, unsigned int line_num)
 {
-	stack_t *tmp = (*stack)->next;
+	monty_stack_t *tmp = (*stack)->next;
 
 	if (!tmp)
 	{
@@ -55,9 +55,9 @@ void monty_pstr(stack_t **stack, unsigned int line_num)
  * @line_number: an integer
  */
 
-void monty_rotl(stack_t **stack, unsigned int line_number)
+void monty_rotl(monty_stack_t **stack, unsigned int line_number)
 {
-		stack_t *top, *bottom;
+		monty_stack_t *top, *bottom;
 
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 		return;
@@ -82,9 +82,9 @@ void monty_rotl(stack_t **stack, unsigned int line_number)
  * @line_number: an integer
  */
 
-void monty_rotr(stack_t **stack, unsigned int line_number)
+void monty_rotr(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *top, *bottom;
+	monty_stack_t *top, *bottom;
 
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 		return;

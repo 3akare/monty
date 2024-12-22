@@ -6,7 +6,7 @@
  *
  * Return: A pointer to the corresponding function
  */
-void (*get_op_func(char *opcode))(stack_t**, unsigned int)
+void (*get_op_func(char *opcode))(monty_stack_t**, unsigned int)
 {
 	int i = 0;
 	instruction_t commands[] = {
@@ -54,8 +54,8 @@ void (*get_op_func(char *opcode))(stack_t**, unsigned int)
 int monty(char *filename)
 {
 	FILE *file;
-	stack_t *stack = NULL;
-	void (*op_func)(stack_t**, unsigned int);
+	monty_stack_t *stack = NULL;
+	void (*op_func)(monty_stack_t**, unsigned int);
 	char *str = malloc(30);
 	char *new_str = malloc(30);
 	size_t size = 30;

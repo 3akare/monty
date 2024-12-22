@@ -6,11 +6,11 @@
  * Return: Always Successful
  */
 
-int init_stack(stack_t **stack)
+int init_stack(monty_stack_t **stack)
 {
-	stack_t *s_new;
+	monty_stack_t *s_new;
 
-	s_new = malloc(sizeof(stack_t));
+	s_new = malloc(sizeof(monty_stack_t));
 	s_new->prev = NULL;
 	s_new->next = NULL;
 	*stack = s_new;
@@ -23,9 +23,9 @@ int init_stack(stack_t **stack)
  * Return: Always Successful
  */
 
-void free_stack(stack_t **stack)
+void free_stack(monty_stack_t **stack)
 {
-	stack_t *tmp = *stack;
+	monty_stack_t *tmp = *stack;
 
 	while (*stack)
 	{
@@ -42,7 +42,7 @@ void free_stack(stack_t **stack)
  * Return: An integer
  */
 
-int check_mode(stack_t **stack)
+int check_mode(monty_stack_t **stack)
 {
 	if ((*stack)->n == QUEUE)
 		return (QUEUE);

@@ -24,7 +24,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
-} stack_t;
+} monty_stack_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -38,7 +38,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(monty_stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /** GLOBAL VARIABLE **/
@@ -48,33 +48,33 @@ int monty(char *filename);
 int get_int(char *str);
 char *get_string(char *str);
 int compare_opcode(char *str);
-void (*get_op_func(char *opcode))(stack_t**, unsigned int);
+void (*get_op_func(char *opcode))(monty_stack_t**, unsigned int);
 int isdigit(int number);
 
 /** MONTY FUNCTIONS**/
-void monty_push(stack_t **stack,  unsigned int line_number);
-void monty_pall(stack_t **stack,  unsigned int line_number);
-void monty_pint(stack_t **stack,  unsigned int line_number);
-void monty_pop(stack_t **stack, unsigned int line_number);
-void monty_swap(stack_t **stack, unsigned int line_number);
-void monty_add(stack_t **stack, unsigned int line_number);
-void monty_nop(stack_t **stack, unsigned int line_number);
-void monty_sub(stack_t **stack, unsigned int line_number);
-void monty_mul(stack_t **stack, unsigned int line_number);
-void monty_div(stack_t **stack, unsigned int line_number);
-void monty_mod(stack_t **stack, unsigned int line_number);
-void monty_pchar(stack_t **stack, unsigned int line_number);
-void monty_pstr(stack_t **stack, unsigned int line_number);
-void monty_rotl(stack_t **stack, unsigned int line_number);
-void monty_rotr(stack_t **stack, unsigned int line_number);
-void monty_stack(stack_t **stack, unsigned int line_number);
-void monty_queue(stack_t **stack, unsigned int line_number);
+void monty_push(monty_stack_t **stack,  unsigned int line_number);
+void monty_pall(monty_stack_t **stack,  unsigned int line_number);
+void monty_pint(monty_stack_t **stack,  unsigned int line_number);
+void monty_pop(monty_stack_t **stack, unsigned int line_number);
+void monty_swap(monty_stack_t **stack, unsigned int line_number);
+void monty_add(monty_stack_t **stack, unsigned int line_number);
+void monty_nop(monty_stack_t **stack, unsigned int line_number);
+void monty_sub(monty_stack_t **stack, unsigned int line_number);
+void monty_mul(monty_stack_t **stack, unsigned int line_number);
+void monty_div(monty_stack_t **stack, unsigned int line_number);
+void monty_mod(monty_stack_t **stack, unsigned int line_number);
+void monty_pchar(monty_stack_t **stack, unsigned int line_number);
+void monty_pstr(monty_stack_t **stack, unsigned int line_number);
+void monty_rotl(monty_stack_t **stack, unsigned int line_number);
+void monty_rotr(monty_stack_t **stack, unsigned int line_number);
+void monty_stack(monty_stack_t **stack, unsigned int line_number);
+void monty_queue(monty_stack_t **stack, unsigned int line_number);
 
 
 /** STACK **/
-int init_stack(stack_t **stack);
-void free_stack(stack_t **stack);
-int check_mode(stack_t **stack);
+int init_stack(monty_stack_t **stack);
+void free_stack(monty_stack_t **stack);
+int check_mode(monty_stack_t **stack);
 
 /** ERROR HANDLERS **/
 void monty_error_malloc(char *message);

@@ -6,9 +6,9 @@
  * @line_number: An integer
  */
 
-void monty_swap(stack_t **stack, unsigned int line_number)
+void monty_swap(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	monty_stack_t *tmp;
 
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
@@ -33,9 +33,9 @@ void monty_swap(stack_t **stack, unsigned int line_number)
  * @line_number: An integer
  */
 
-void monty_add(stack_t **stack, unsigned int line_number)
+void monty_add(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	monty_stack_t *tmp;
 	int new;
 
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
@@ -58,9 +58,9 @@ void monty_add(stack_t **stack, unsigned int line_number)
  * @line_number: An integer
  */
 
-void monty_sub(stack_t **stack, unsigned int line_number)
+void monty_sub(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	monty_stack_t *tmp;
 	int new;
 
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
@@ -83,7 +83,7 @@ void monty_sub(stack_t **stack, unsigned int line_number)
  * @line_numb: An integer
  */
 
-void monty_nop(stack_t __attribute__((unused))**stack, unsigned int line_numb)
+void monty_nop(monty_stack_t __attribute__((unused))**stack, unsigned int line_numb)
 {
 	line_numb += 0;
 }
