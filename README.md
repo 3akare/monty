@@ -25,6 +25,10 @@ Run the interpreter on a file
 ./monty file.m
 ```
 
+## Alternative
+```shell
+curl -L -o /usr/local/bin/monty https://github.com/3akare/monty/releases/download/v1.0.0/monty-macos-x86_64 && chmod +x /usr/local/bin/monty
+```
 # Opcodes
 | Opcode         | Description | Usage|
 | -------------- | -------------------------- | -------------------- |
